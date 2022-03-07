@@ -383,9 +383,9 @@ app.post('/rentals/:id/return', async (req, res) => {
 
     await connection.query(`
     UPDATE
-    rentals SET "delayFee" = $1, "returnDate" = $2
-    WHERE id=$3`,
-    [delayFee, returnDate,  id]);
+    rentals SET "returnDate" = $1, "delayFee" = $1
+    WHERE id=$2`,
+    [returnDate,  id]);
 
 
 
